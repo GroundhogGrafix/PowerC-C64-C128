@@ -1,0 +1,65 @@
+binstr and strbin documentation
+Date: 9/14/21
+Author: Martin Sigley
+
+Files to include when using these 
+functions:
+binstr.h in your source file.
+binstr.o when linking.
+
+Function:
+-------- 
+char* binstr( int num, char n_bits )
+
+Purpose:
+Convert a number that may be of type
+int or unsigned to a printable binary 
+string. Example unsigned $f0 to string 
+"11110000".
+
+Example usage:
+printf("Number $f in binary is %s.", binstr( 0xf, 8));
+
+Output:
+Number $f in binary is 00001111.
+
+Info: You can choose any number of bits
+from 0 - 16. This means you can display
+a nybble of a byte in binary by setting 
+nbits to 4.
+
+
+Function:
+int strbin( char *string )
+
+Purpose:
+Convert a binary number in a string to 
+an int or unsigned.
+
+Example:
+printf("1111 bin to dec is %x.", strbin("1111"));
+
+Output:
+1111 bin to dec is f.
+
+Info: This function expects a NULL
+terminated string and the string should
+not contain a binary number larger
+than 16 digits.
+
+
+Note: Trimming can introduce errors, 
+especially when adding object files
+with lib program included with Power C.
+Only trim an object file after it has
+been added to a library file.
+
+Debugging program included:
+Name: binstr%.sh
+This program allows you to challenge
+these functions for errors.
+
+If an error is found in these functions
+or in the testing program, please let me
+know at ca_groundhog@yahoo.com. Thanks.
+
