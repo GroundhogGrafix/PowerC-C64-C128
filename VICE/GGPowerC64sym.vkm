@@ -123,6 +123,9 @@
 # the tab key is remapped to left control on the C64 and
 # left control is remapped to the CBM key on the C64.
 
+# Insert
+Insert			0 0 1
+
 # Underscore
 underscore      5 6 2064
 
@@ -155,8 +158,8 @@ ISO_Left_Tab    7 2 16392
 # |Bit 0| DEL |Retrn|C_L/R|  F7 |  F1 |  F3 |  F5 |C_U/D|
 
 BackSpace       0 0 8
-#  GGR REMOVED ------------>   Delete          0 0 8
-Insert          0 0 16
+#  	GG REMOVED ------------>   	Delete          0 0 8
+#	GG REMOVED ------------>	Insert          0 0 16
 Return          0 1 8
 Right           0 2 8
 KP_F4           0 2 8
