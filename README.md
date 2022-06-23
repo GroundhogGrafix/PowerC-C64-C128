@@ -1,2 +1,2 @@
 # Power-C-Commodore-64-128
-Library additions and utilities for Power C.
+Library additions, utilities and software written either for Power C or with Power C for the Commodore 64 and 128. I have also included the Power C compiler and manual for the C64 and C128 which is difficult to find these days. Unfortuantley most of the source files are still on D64 or D81 disk images. My suggestion is to download them and open them with some Commodore disk utility software such as DirMaster for Windows. I know VICE also has some command line tools for working with disk images and I believe those are available for Linux users.
