@@ -1,0 +1,393 @@
+FUNCTIONS.DOC
+
+This is documentation for all
+GroundhoGrafix Power C Functions.
+
+When you know the function name your
+looking for I suggest to search using
+the console to take you to the desired 
+section.
+
+Hint: Key Runstop brings up the command
+line type: /functionname and hit F3 to 
+find the function name in this document.
+
+First section is the function list for
+  quick syntax reference.
+
+Second Section is the Function
+  Description and Object file location.
+
+Third section is the function soure
+  files and disk title the files are
+  located on.
+
+Function List:
+-----------------------------
+Functions with a "$" in the name means
+the function is for internal use by ML
+functions you make.
+
+void  c$finit( void ) /* NO HEADER, for ML routines only  */ 
+char  getch  ( void ) /* CONIO.H */
+char  inkey  ( void ) /* CONIO.H */
+char  kbhit  ( void ) /* CONIO.H */
+void* memmove( void* dest, void* src, unsigned len ) /* STRINGS.H */
+void* memset ( void* dest, char c, unsigned size ) /* STRINGS.H */
+char* strstr ( char* string, char* substr ) /* STRING.H */
+
+
+
+Function Descriptions & Disk Locations:
+-----------------------------
+-------------------
+C$FINIT() Loc: PCLIB01
+
+void  c$finit( void )
+
+Header: NO HEADER
+
+Returns: None
+
+Use this function internally in your ML
+functions to copy c$parms ( Parameters )
+to zero page starting at $4c. Maximum
+parameters your function can have is
+9 or zero page will be over written.
+Call the function after c$funct_init
+and it will also store the X reg at
+address $4b for later retrieval in your
+function so you can return a result from
+your function in c$parms. Load the A reg
+with the number of parameters your
+function accepts.
+
+Example:
+; Copies X register and all parameters
+; in that order to zero page starting at 
+; $4b.
+
+  jsr c$funct_init
+  lda #5 ; Parameters your function takes
+  jsr c$finit ; Copies X reg and all 
+              ; parms to zero page.
+
+-------------------
+GETCH() Loc: PCLIB01
+
+char getch   ( void )
+
+Header: CONIO.H
+
+Retruns: A key from the keyboard buffer.
+  after waiting for a key to be pressed
+  by the user.
+
+Gets keyboard input like getc() but
+does not echo the key to the screen.
+
+Example:
+/* Menu Choice */
+
+#include<stdio.h>
+#include<conio.h>
+
+main()
+{
+  char key=0;
+
+  puts("1) Add numbers");
+  puts("2) Subtract numbers");
+  puts("Q) Quit");
+
+  while('q'!=(key=getch()))
+  {
+    switch(key)
+      case '1':
+        /* Do adding */
+        break;
+      case '2':
+        /* Do subtracting */
+        break;
+      default:
+        break;
+  }
+  puts("Boy, that was fun.");
+}
+-------------------
+INKEY() Loc: PCLIB01
+
+char  inkey  ( void )
+
+Header: CONIO.H
+
+Returns: A key from the keyboard buffer.
+
+Gets keyboard input like getc() but
+doesn't wait for keyboard input like
+getc() does. Function is non standard
+and can be replacd by using kbhit() and
+getc() together. Function originates
+from the BASIC statement inkey$ and has
+similar behavoir.
+
+Example:
+/* Loop and check for key presses. */
+
+#include<stdio.h>
+#include<conio.h>
+
+main()
+{
+  char key=0;
+
+  /* Main loop */
+  while('e' != key)
+  {
+    /* Check for key press but don't 
+     * pause the loop.
+     */
+    key = inkey();
+
+    /* Do other things */
+  }
+
+  /* 'e' key was pressed, loop exited 
+   *  and program ended.
+   */
+}
+
+-------------------
+KBHIT() Loc: PCLIB01
+
+char  kbhit  ( void )
+
+Header: CONIO.H
+
+Returns: Non zero if a key has been 
+         pressed. The routine simply
+         loads the value from memory 
+         location $C6 and returns it.
+         which means it can also be
+         used to see how many characters 
+         are currently in the keyboard
+         buffer.
+
+Example:
+/* inkey() workaround. */
+
+#include<stdio.h>
+#include<conio.h>
+
+main()
+{
+  char key=0;
+
+  /* Main loop */
+  while('e' != key)
+  {
+    /* Check for key press but don't 
+     * pause the loop.
+     */
+    if(kbhit())
+      key = getc(stdin);
+
+    /* Do other things */
+  }
+
+  /* 'e' key was pressed, loop exited 
+   *  and program ended.
+   */
+}
+
+-------------------
+MEMMOVE() Loc: PCLIB01
+
+void* memmove( void* dest, 
+               void* src, 
+               unsigned len ) 
+
+Header: STRINGS.H Loc: PCLIB01WD
+
+Retruns: Pointer to dest.
+
+void* dest:   Pointer to destination
+              address in memory.
+void* src:    Pointer to source address
+              in memory.
+unsigned len: Total bytes to copy.
+
+Copies memory from a source location
+to a destination location in RAM. The
+location copied to may overlap with the
+source memory location without conflict.
+
+Example:
+/* Copies a string over a string */
+
+#include<strings.h>
+
+main()
+{
+  char* str="ardvark ";
+
+  puts( str );
+
+  memmove( str+1, str, 8 );
+
+  puts( str );
+}
+
+output: ardvark
+        aardvark
+-------------------
+MEMSET() Loc: PCLIB01
+
+void* memset( void* dest, 
+              char c, 
+              unsigned size )
+
+Header: STRINGS.H Loc: PCHEAD01
+
+Returns: Pointer to dest.
+void* dest: Pointer to buffer.
+char c: Byte to write
+unsigned size: Total bytes to write
+               0-65535.
+
+Sets a memory range from 0 - 65535 to
+a single byte.
+
+Example:
+/* Fills text screen with character 32 */
+char* screen;
+
+screen = (char*) memset(0x400, 32, 1000); 
+-------------------
+STRSTR() Loc: PCLIBS01 
+
+char* strstr ( char* string, char* substr ) /* STRING.H */
+
+Header: STRINGS.H Loc: PCLIBS01WD
+
+Returns: Pointer to the first occurance
+         of the substring found in 
+         string or NULL if not found.
+
+char* string: String to be searched.
+char* substr: String to search for.
+
+Searchs for a substring within a string
+and if a match is found a pointer to
+the index in string is returned. If not
+found then NULL is returned. Both
+strings may be any size.
+
+Example:
+/* Searchs for a substring in a string
+and returns a pointer to it if found. */
+
+#include<stdio.h>
+#include<strings.h>
+
+char* string = "Happy go lucky!";
+char* substr = "lucky";
+
+main()
+{
+  char* strptr, *subptr;
+
+  strptr = string;
+  subptr = substr;
+
+  strptr = strstr( strptr, subptr );
+
+  if( strptr )
+  {
+    printf("Substring found: %s\n", strptr);
+  }
+  else
+  {
+    printf("Substring not found.\n");
+  }
+}
+
+Output:
+Substring found: lucky!
+
+-------------------
+-----------------------------
+
+
+
+Function Sources & Project Info:
+-----------------------------
+File types and meaning:
+.a Final C version of a function ready
+  for assembly by assm in to a .o file.
+
+.asm TMP Version in SEQ format for 
+  testing modifications. This version
+  will be different than the finished
+  .a version.
+
+.o Object file to link in to your C
+  programs.
+
+.c Usually a file to test the ML
+  function with.
+
+
+-------------------
+C$FINIT
+
+DISK NAME: PCLIB01WD
+FILES: c$finit.a 
+       c$finit.asm
+       c$finit.o
+------------------
+GETCH
+
+DISK NAME: PCLIB01WD
+FILES: getch.a
+       inkeytest.c
+------------------
+INKEY
+
+DISK NAME: PCLIB01WD
+FILES: inkey.a
+       inkey.asm
+       inkey.o
+       inkeytest.c
+------------------
+KBHIT 
+
+DISK NAME: PCLIB01WD
+FILES: kbhit.a
+       inkey.asm
+       kbhit.o
+       inkeytest.c
+------------------
+MEMMOVE
+
+DISK NAME: PCLIB01WD
+FILES: memmove.a
+       memmove.asm
+       memmove.o
+       memmovetest.c
+-------------------
+MEMSET
+
+DISK NAME: PCLIB01WD
+FILES: memset.a
+       memset.asm 
+       memset.o
+       memsettest.c
+-------------------
+STRSTR
+
+DISK NAME: PCLIB01WD
+FILES: strstr.a
+       strstr.o
+       strstrtest.c
+----------------------------------------
