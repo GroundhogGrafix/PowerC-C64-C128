@@ -34,7 +34,7 @@ char  inkey  ( void ) /* CONIO.H */
 char  kbhit  ( void ) /* CONIO.H */
 void* memmove( void* dest, void* src, unsigned len ) /* STRINGS.H */
 void* memset ( void* dest, char c, unsigned size ) /* STRINGS.H */
-char* strstr ( char* string, char* substr ) /* STRING.H */
+char* strstr ( char* string, char* substr ) /* STRINGS.H */
 
 
 
@@ -207,7 +207,7 @@ void* memmove( void* dest,
                void* src, 
                unsigned len ) 
 
-Header: STRINGS.H Loc: PCLIB01WD
+Header: STRINGS.H Loc: PCLIB01
 
 Retruns: Pointer to dest.
 
@@ -266,9 +266,9 @@ screen = (char*) memset(0x400, 32, 1000);
 -------------------
 STRSTR() Loc: PCLIBS01 
 
-char* strstr ( char* string, char* substr ) /* STRING.H */
+char* strstr ( char* string, char* substr ) /* STRINGS.H */
 
-Header: STRINGS.H Loc: PCLIBS01WD
+Header: STRINGS.H Loc: PCLIBS01
 
 Returns: Pointer to the first occurance
          of the substring found in 
@@ -390,4 +390,4 @@ DISK NAME: PCLIB01WD
 FILES: strstr.a
        strstr.o
        strstrtest.c
-----------------------------------------
+---------------------------------------
