@@ -17,8 +17,8 @@ PCLIBS01 DIRECTORY LISTING:
 PCLIBS01WD, The WD stands for Work Disk, in other words the Source disk. These files are for creating, testing and debugging. The ones that have been tested enough and seem to be of some value to others I place on the disk labeled PCLIBS01.
 PCLIBS01WD DIRECTORY LISTING:
 
-0 "pclibs01wd      " w1 2a
-2    "binstr.h"         seq 
+0 r"pclibs01wd      " w1 2a
+’2    "binstr.h"         seq 
 3    "binstr.o"         seq 
 4    "c$finit.asm"      seq 
 4    "c$finit.a"        seq 
@@ -36,6 +36,7 @@ PCLIBS01WD DIRECTORY LISTING:
 4    "disk.h"           seq 
 2    "disktools.h"      seq 
 2    "dupstr.o"         seq 
+4    "memsettest.sh"    prg 
 3    "getch.a"          seq 
 1    "getch.o"          seq 
 1    "getkey.o"         seq 
@@ -101,6 +102,7 @@ PCLIBS01WD DIRECTORY LISTING:
 1    "strstr.c"         seq 
 1    "strstr.o"         seq 
 8    "strstr2.c"        seq 
+1    "memsettest.o"     seq 
 5    "strstrtest.c"     seq 
 6    "strstrtest.o"     seq 
 8    "strstrtest.sh"    prg 
@@ -110,7 +112,7 @@ PCLIBS01WD DIRECTORY LISTING:
 17   "time.o"           seq 
 1    "toupper.o"        seq 
 3    "wildcard.o"       seq 
-245 blocks free.
+240 blocks free.
 
 
 PCLIBS02WD, The WD stands for Work Disk, in other words the Source disk. These files are for creating, testing and debugging. The ones that have been tested enough and seem to be of some value to others I place on the disk labeled PCLIBS01.
