@@ -1,0 +1,45 @@
+Utilities.doc
+
+GroundhoGrafix Utilities Document
+
+
+This document explains the usage of the
+utility programs written by
+GroundhoGrafix for Power C.
+
+
+Hint: The Runstop key brings up the
+command line. Type: /utilityname and
+hit F3 to quickly find the utility name
+in this document.
+
+
+The first section of this document
+provides quick informaion about the
+utilities. The second section provides
+details on where the source files are
+located for modification or review.
+
+Utilities
+-------------------
+prasc2sc.sh
+Location: utility01
+Description: Prints a C array/table to a
+  file that allows you to convert
+  PETSCII to screen codes. Just include
+  the output file in your C program and
+  you can easily reference it using the
+  PETSCII code to find the appropriate 
+  Screen Code.
+
+
+Source:
+-------------------
+prasc2sc
+Location: Utility01wd (wd=work disk)
+Files: stdio.h
+       conio.h
+       prasc2sc.c
+
+Link: prasc2sc.o
+      ^
