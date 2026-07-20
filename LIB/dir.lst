@@ -1,143 +1,200 @@
-listd64.doc
-
-Written by Martin Sigley, GroundhoGrafix 3/28/2026.
-
-Documentation for the listd64 utility. Compiled with tcc (Tiny C Compiler), it also
-compiles with gcc but the executable is considerably larger.
-
-HOW TO USE THE UTILITY:
-This is a .D64 disk image directory listing program. You can use it on the command 
-line like this:
-
-listd64 mydisk.d64
-
-It accepts multiple files at once or a single file. Wildcard input is not supported
-from the console, however under windows GUI you can select as many D64 images as you 
-like and drop them on to listd64.exe and it will extract all of the directories in to
-the dir.lst file as well as print them to the screen. If you drag and drop from a
-different folder than where listd64 is then look for the dir.lst file in the folder
-where your D64 images came from.
-
-HOW TO USE THE CODE:
-
-To use in your own C programs:
-
-byte is a new data type. It is the same as unsigned char.
-
-You have to include the header file:
-#include "listd64.h"
+0 "pclibs01         " pl 2a
+34   "functions.doc"     seq
+1    "conio.h"           seq
+2    "strings.h"         seq
+1    "c$finit.o"         seq
+1    "getch.o"           seq
+1    "inkey.o"           seq
+1    "kbhit.o"           seq
+1    "memmove.o"         seq
+1    "memset.o"          seq
+1    "strstr.o"          seq
+1    "binstr.o"          seq
+1    "strbin.o"          seq
+618 blocks Free.
 
 
-Your first function call should be d64Init():
+0 "pclibs01wd       " w1 2a
+2    "binstr.h"          seq
+3    "binstr.o"          seq
+4    "c$finit.asm"       seq
+4    "c$finit.a"         seq
+1    "c$finit.o"         seq
+6    "c64.h"             seq
+2    "clock.h"           seq
+1    "comerr.o"          seq
+1    "conio.h"           seq
+1    "convscrcodes.h"    seq
+29   "copy.o"            seq
+1    "cread.o"           seq
+1    "cwrite.o"          seq
+16   "del.o"             seq
+3    "dir.h"             seq
+4    "disk.h"            seq
+2    "disktools.h"       seq
+2    "dupstr.o"          seq
+4    "memsettest.sh"     prg
+3    "getch.a"           seq
+1    "getch.o"           seq
+1    "getkey.o"          seq
+3    "ggdir.h"           seq
+1    "ggmalloc.h"        seq
+3    "ggmath.h"          seq
+1    "ggrafix.a"         seq
+1    "ggstd.h"           seq
+5    "ggstring.h"        seq
+6    "inkey.asm"         seq
+3    "inkey.a"           seq
+1    "inkey.o"           seq
+3    "inkeytest.c"       seq
+4    "inkeytest.o"       seq
+6    "inkeytest.sh"      prg
+3    "kbhit.a"           seq
+1    "kbhit.o"           seq
+7    "lddir.c"           seq
+3    "lddir.o"           seq
+6    "lddir.sh"          prg
+9    "lddir2.c"          seq
+6    "lddir2.o"          seq
+9    "lddir2.sh"         prg
+10   "lddir3.a"          seq
+10   "lddir3.c"          seq
+5    "lddir3.o"          seq
+8    "lddir3.sh"         prg
+1    "libc.l"            seq
+1    "math.h"            seq
+15   "memmove.asm"       seq
+12   "memmove.a"         seq
+1    "memmove.o"         seq
+3    "memmovetest.c"     seq
+6    "memmovetest.o"     seq
+9    "memmovetest.sh"    prg
+7    "memset.asm"        seq
+4    "memset.a"          seq
+1    "memset.o"          seq
+1    "memsettest.c"      seq
+1    "open.o"            seq
+2    "plot.o"            seq
+3    "qsort.o"           seq
+6    "readbyts.a"        seq
+1    "readbyts.o"        seq
+8    "readdir.asm"       prg
+21   "readdir.a"         seq
+1    "readdir.h"         seq
+3    "readdir.o"         seq
+15   "readdir2.a"        seq
+3    "readdir2.o"        seq
+3    "reu.h"             seq
+3    "setchin.a"         seq
+1    "setchin.o"         seq
+1    "setjmp.h"          seq
+1    "skipspc.o"         seq
+1    "stdarg.h"          seq
+1    "stdio.h"           seq
+4    "str2scr.o"         seq
+3    "strclean.o"        seq
+2    "strings.h"         seq
+8    "strstr.asm"        seq
+5    "strstr.a"          seq
+1    "strstr.c"          seq
+1    "strstr.o"          seq
+8    "strstr2.c"         seq
+1    "memsettest.o"      seq
+5    "strstrtest.c"      seq
+6    "strstrtest.o"      seq
+8    "strstrtest.sh"     prg
+3    "struint.o"         seq
+4    "tdir.o"            seq
+2    "time.h"            seq
+17   "time.o"            seq
+1    "toupper.o"         seq
+3    "wildcard.o"        seq
+240 blocks Free.
 
-d64Init();
+
+0 "pc functions01   " f1 2a
+5    "binstr2%.o"        seq
+9    "binstr2%.sh"       prg
+2    "binstr2%.c"        seq
+1    "strbin.o"          seq
+1    "stdio.h"           seq
+7    "strbin.a"          seq
+2    "alpha.o"           seq
+4    "alphatest.o"       seq
+3    "man.page"          seq
+1    "toupper.o"         seq
+4    "alphatest.c"       seq
+7    "alphatest.sh"      prg
+1    "read.me"           seq
+2    "alpha.c"           seq
+7    "bfopen.o"          seq
+8    "bsave%.o"          seq
+12   "bsave%.sh"         prg
+3    "bsave.c"           seq
+18   "bfopen%.sh"        prg
+1    "bfopen.h"          seq
+5    "bfopen%.o"         seq
+6    "bfopen.c"          seq
+2    "kernal.s"          seq
+6    "getchar.dis"       seq
+1    "getchar.obj"       seq
+6    "ferror.dis"        seq
+1    "ferror.obj"        seq
+5    "feof.dis"          seq
+1    "feof.obj"          seq
+1    "comerr.o"          seq
+6    "comerr.a"          seq
+1    "cwrite.o"          seq
+6    "cwrite.a"          seq
+1    "cread2.o"          seq
+7    "cread2.cpy"        seq
+7    "cread2.a"          seq
+1    "cread.o"           seq
+6    "cread.a"           seq
+8    "fread.dis"         seq
+1    "fread.obj"         seq
+1    "open.o"            seq
+6    "open.a"            seq
+3    "fopen.obj"         seq
+11   "fopen.dis"         seq
+14   "copen.asm"         prg
+21   "copen.s"           seq
+19   "clock.c"           seq
+10   "clock.o"           seq
+7    "hwclock.c"         seq
+2    "clock.h"           seq
+15   "hwclock.sh"        prg
+1    "inkey.o"           seq
+1    "inkey.c"           seq
+3    "peek.c"            seq
+5    "poke.c"            seq
+7    "peek.sh"           prg
+12   "poke.sh"           prg
+1    "poke.h"            seq
+4    "plot.c"            seq
+2    "plot.o"            seq
+10   "lddir3.a"          seq
+6    "strbin_.asm"       seq
+4    "peek.a"            seq
+21   "readdir.a"         seq
+3    "setchin.a"         seq
+6    "readbyts.a"        seq
+15   "readdir2.a"        seq
+5    "binstr_.asm"       seq
+1    "binstr.o"          seq
+8    "ggload.asm"        prg
+8    "readdir.asm"       prg
+5    "lddir3.o"          seq
+3    "readdir.o"         seq
+3    "lddir.o"           seq
+1    "setchin.o"         seq
+1    "readbyts.o"        seq
+3    "readdir2.o"        seq
+6    "lddir2.o"          seq
+7    "lddir.c"           seq
+9    "lddir2.c"          seq
+10   "lddir3.c"          seq
+12   "binstr.doc"        seq
+196 blocks Free.
 
 
-Then declare a D64Image* variable:
-
-D64Image* d.
-
-
-Load the D64 image: 
-
-d = d64LoadImage("mydisk.d64").
-
-
-You can then access any track or block on the disk image using the function d64tba()
-like this, which stands for D64 Track, Block to Address:
-
-unsigned address;
-address = d64tba(18,1). 
-
-You can then read from the loaded image file like this:
-
-*(d->image + d64tba(18,1))
-
-Here is an example of printing an entire block/sector to the screen:
-
-for(byt=0; byt<256; byt++)
-	printf("%2d ", *(d->image + d64tba(18,0) + byt));
-	
-d64tba() is used just to locate the beginning of a specific track and block, you will
-have to add an additional offset between 0 - 255 to actually read through that block.
-Remember the first 2 bytes of every block are the track and sector of the next block
-in the chain. If the track (1st byte) is 0 then then this is the last block in the
-chain and the block (2nd byte) tells you how many bytes are used inside this last
-block.
-	
-When finished with the disk image it is a good practice to deallocate the memory
-used for it by calling:
-
-d64UnloadImage(d);
-
-
-EXTRAS:
-There is a 256 byte array in the listd64.h file called pc2asc[]. pc2asc means Power C
-to ASCII. You can use this to convert PETSCII to ASCII like this:
-
-char c;
-
-for(byt=0; byt<256; byt++)
-{
-	c = pc2asc[*(d->image + d64tba(18,0) + byt)];
-	putchar(c);
-}
-
-This example is the just of it but is pretty worthless in it's current form. Likely
-you will hunt down a track and block on the disk using d64tba() and locate a PETSCII
-string that you'll want to use pc2asc[] on to convert that string to a modern ASCII
-string.
-
-Use D64Header to place a structure overlay on top of the header block. First make a
-pointer like so:
-
-D64Header *h;
-D64Image* d;
-
-Then assign the header pointer to the block like this:
-
-h = (D64header*) (d->image + d64tba(18,0));
-
-you can then read the different parts of the header using the struct members. Refer
-to the listd64.h file for all of the members. If unsure of the what the member
-represents refer online or in your 1541 User's Manual near the end of the manual for
-a break down of each section.
-
-you can now get a piece of header data like this:
-
-byte b = h->dosVersion;
-
-For file entries you can do the same as we did with the D64Header except you'll
-use d64tba(18,1) and point the D64FileEntry pointer there. There will be 8 file
-entries per block so you can reference them like this after you assign the pointer.
-
-D64FileEntry *fe = (D64FileEntry*) (d->image + d64tba(18,1));
-
-byte nextTrack = fe[0].track;
-byte nextBlock = fe[0].block;
-
-Here we find the first character of the file name for the 3rd file in the block:
-
-putchar(fe[2].fileName[0]);
-
-Even better yet we could have done this:
-
-putchar(pc2asc[fe[2].fileName[0]]);
-
-That would not only get the first letter of the filename but would also convert it
-from PETSCII to ASCII and print it.
-
-Essentially, d64LoadImage() and d64tba() will give you access to all data on a D64
-image. You can read all of the data on the image. If you wanted to change the data
-all you would have to do is create a function to resave the image to disk like this.
-
-D64Image* d;
-File *fptr;
-
-d = d64LoadImage("original.d64");
-fptr = fopen("newdisk.d64", "w");
-fwrite(d->image, sizeof(byte), d->size, fptr);
-
-Now your changes are saved to "newdisk.d64".
-
-Hope this document helps get you started. Happy Commodoring!
